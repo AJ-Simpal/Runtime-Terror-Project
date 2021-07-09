@@ -1,12 +1,65 @@
 
 #PUT YOUR CODES HERE
+class Calculator:
+    def __init__(self):
+
+        self.total_expression = ""
+        self.current_expression = ""
+
+        self.digits = {
+            7, 8, 9,
+            4, 5, 6,
+            1, 2, 3,
+            0, '.'
+        }
+        self.operations = {"/": "\u00F7", "*": "\u00D7", "-": "-", "+": "+"}
+        
+    
+    def add_to_expression(self, value):
+        self.current_expression += str(value)
+        self.update_label()
+
+    
+    def append_operator(self, operator):
+        self.current_expression += operator
+        self.total_expression += self.current_expression
+        self.current_expression = ""
+        self.update_total_label()
+        self.update_label()
+
+    
+
+    def clear(self):
+        self.current_expression = ""
+        self.total_expression = ""
+        self.update_label()
+        self.update_total_label()
+
+    
+    def square(self):
+        self.current_expression = str(eval(f"{self.current_expression}**2"))
+        self.update_label()
 
 
+    def backspace(self):
+        self.current_expression = self.current_expression[:-1]
+        self.update_label()
 
+    def evaluate(self):
+        self.total_expression += self.current_expression
+        self.update_total_label()
+        try:
+            self.current_expression = str(eval(self.total_expression))
 
+            self.total_expression = ""
+        except Exception as e:
+            self.current_expression = "Error"
+        finally:
+            self.update_label()
 
+    
 
-def update_total_label(self):
+    def update_total_label(self):
         expression = self.total_expression
         for operator, symbol in self.operations.items():
             expression = expression.replace(operator, f' {symbol} ')
@@ -14,4 +67,8 @@ def update_total_label(self):
 
     def update_label(self):
         self.label.config(text=self.current_expression[:11])
+
+
+    
+
 
