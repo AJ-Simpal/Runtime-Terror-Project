@@ -3,6 +3,152 @@ import tkinter as tk
 #
 #put your codes here
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def create_clear_button(self):
+        button = tk.Button(self.buttons_frame, text="AC", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
+                           borderwidth=0, command=self.clear)
+        button.grid(row=0, column=2, sticky=tk.NSEW)
+ 
+ 
+ 
+ 
+ 
+     def create_square_button(self):
+        button = tk.Button(self.buttons_frame, text="x\u00b2", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
+                           borderwidth=0, command=self.square)
+        button.grid(row=0, column=1, sticky=tk.NSEW)
+ 
+
+
+
+    def create_backspace_button(self):
+        button = tk.Button(self.buttons_frame, text="DEL", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
+                           borderwidth=0, command=self.backspace)
+        button.grid(row=0, column=3, sticky=tk.NSEW)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def create_equals_button(self):
+        button = tk.Button(self.buttons_frame, text="=", bg=LIGHT_BLUE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
+                           borderwidth=0, command=self.evaluate)
+        button.grid(row=4, column=3, columnspan=2, sticky=tk.NSEW)
+
+    def create_buttons_frame(self):
+        frame = tk.Frame(self.window)
+        frame.pack(expand=True, fill="both")
+        return frame
+
 if __name__ == "__main__":
     calc = Calculator()
     calc.run()
